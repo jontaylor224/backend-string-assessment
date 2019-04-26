@@ -24,8 +24,18 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Reports the number of donuts
+
+    Parameters
+    ----------
+    count: int
+
+    Returns
+    -------
+    If count is 10 or more, return "Number of donuts: many"
+    If count is less than 10, return "Number of donuts: <count>"
+    """
+    return "Number of donuts: many" if count >= 10 else "Number of donuts: " + str(count)
 
 
 # B. both_ends
@@ -34,8 +44,18 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Returns a string made from the first and last 2 characters of an imput string.
+
+    Parameters
+    ----------
+    s: str
+
+    Returns
+    -------
+    If s is less than 2 characters, return an empty string.
+    If s is greater than 2 characters, return a string composed of the first two and last two characters of s.
+    """
+    return "" if len(s) < 2 else s[:2] + s[-2:]
 
 
 # C. fix_start
@@ -48,8 +68,17 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Replace all but the first instances of the first letter of a string with an asterisk (*).
+
+    Parameters
+    ----------
+    s: str
+
+    Returns
+    -------
+    Returns a new string with all but the first instance of the first character in the string replaced with an asterisk (*). eg. "babble" becomes "ba**le"
+    """
+    return s[0] + s.replace(s[0], "*")[1:]
 
 
 # D. MixUp
@@ -60,8 +89,19 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Combine two strings and swap their first two characters
+
+    Parameters
+    ----------
+    a: str
+    b: str
+    a and b must be at least 2 characters in length
+
+    Returns
+    -------
+    Returns a string combining string a and string b separated by a space, with the first two characters of each string swapped.  eg. "pan" and  "mix" becomes "min pax".
+    """
+    return b[:2] + a[2:] + ' ' + a[:2] + b[2:]
 
 
 # Provided simple test() function used in main() to print
@@ -73,7 +113,7 @@ def test(got, expected):
     else:
         prefix = '  X '
     print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
-    
+
 
 # Provided main() calls the above functions with interesting inputs,
 # using test() to check if each result is correct or not.

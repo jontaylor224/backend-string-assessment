@@ -6,6 +6,8 @@
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
+import math
+
 # Additional basic string exercises
 
 # D. verbing
@@ -18,8 +20,24 @@
 
 
 def verbing(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Places ing or ly at the end of a string of 3 characters or more
+
+    Parameters
+    ----------
+    s: str
+
+    Returns
+    -------
+    If the length of s is less than 3, returns original string
+    If the lenght of s is greater than 3, returns original string with 'ing'
+    added to the end.  If the string already ends with 'ing', returns original string with 'ly' added to the end.
+    """
+    if len(s) >= 3:
+        if s.endswith('ing'):
+            s += "ly"
+        else:
+            s += "ing"
+    return s
 
 
 # E. not_bad
@@ -31,8 +49,23 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Replaces phrase 'not ... bad' with 'good
+
+    Parameters
+    ----------
+    s: str
+
+    Returns
+    -------
+    If a string contains a substring beginning with 'not' and  ending with
+    'bad' (eg. 'not that bad'), replace the substring with 'good'.
+    If there is no qualifying substring, return the original string.
+    """
+    not_index = s.find('not')
+    bad_index= s.find('bad')
+    if not_index < bad_index:
+        s = s.replace(s[not_index:bad_index + 3], 'good')
+    return s
 
 
 # F. front_back
@@ -44,7 +77,12 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
     """Your code goes here.  Edit this docstring."""
-    return
+    def splitstring(s):
+        split_point = math.ceil(len(s)/2)
+        return  (s[:split_point], s[split_point:])
+    a_split = splitstring(a)
+    b_split = splitstring(b)
+    return a_split[0] + b_split[0] + a_split[1] + b_split[1]
 
 
 # Provided simple test() function used in main() to print
