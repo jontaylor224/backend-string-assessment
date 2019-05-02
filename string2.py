@@ -87,8 +87,8 @@ def front_back(a, b):
     -------
     Returns a string made by splitting the two input strings and recombining the first half of the first string with the second half of the second string and vice versa then joining both strings into a single string. Eg. "abcde" and "wxyz" become "abcyzwxde", and "Kitten" "Donut" becomes "KitDontenut"
     """
-    midpoint_a = len(a) / 2
-    midpoint_b = len(b) / 2
+    midpoint_a = int(len(a) / 2)
+    midpoint_b = int(len(b) / 2)
     if len(a) % 2 == 1:
         midpoint_a += 1
     if len(b) % 2 == 1:
