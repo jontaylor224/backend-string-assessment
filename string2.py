@@ -76,13 +76,24 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    """Your code goes here.  Edit this docstring."""
-    def splitstring(s):
-        split_point = math.ceil(len(s)/2)
-        return  (s[:split_point], s[split_point:])
-    a_split = splitstring(a)
-    b_split = splitstring(b)
-    return a_split[0] + b_split[0] + a_split[1] + b_split[1]
+    """Splits two strings and recombines the four halves into a single string.
+
+    Parameters
+    ----------
+    a: str
+    b: str
+
+    Returns
+    -------
+    Returns a string made by splitting the two input strings and recombining the first half of the first string with the second half of the second string and vice versa then joining both strings into a single string. Eg. "abcde" and "wxyz" become "abcyzwxde", and "Kitten" "Donut" becomes "KitDontenut"
+    """
+    midpoint_a = len(a) / 2
+    midpoint_b = len(b) / 2
+    if len(a) % 2 == 1:
+        midpoint_a += 1
+    if len(b) % 2 == 1:
+        midpoint_b += 1
+    return a[:midpoint_a] + b[:midpoint_b] + a[midpoint_a:] + b[midpoint_b:]
 
 
 # Provided simple test() function used in main() to print
